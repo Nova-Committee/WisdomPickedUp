@@ -24,6 +24,6 @@ public class MixinWeighedSoundEvents {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(ResourceLocation resourceLocation, String string, CallbackInfo ci) {
-        this.list = new FastList<>();
+        this.list = new FastList<>(this.list);
     }
 }

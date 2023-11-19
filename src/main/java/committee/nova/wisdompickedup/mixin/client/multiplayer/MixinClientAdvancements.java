@@ -25,6 +25,6 @@ public class MixinClientAdvancements {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Minecraft minecraft, WorldSessionTelemetryManager worldSessionTelemetryManager, CallbackInfo ci) {
-        this.progress = new UnifiedMap<>();
+        this.progress = new UnifiedMap<>(this.progress);
     }
 }

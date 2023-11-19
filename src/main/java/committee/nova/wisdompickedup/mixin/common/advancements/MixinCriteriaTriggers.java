@@ -23,6 +23,6 @@ public class MixinCriteriaTriggers {
 
     @Inject(method = "<clinit>", at = @At("RETURN"))
     private static void inject$clinit(CallbackInfo ci) {
-        CRITERIA = new UnifiedMap<>();
+        CRITERIA = new UnifiedMap<>(CRITERIA);
     }
 }

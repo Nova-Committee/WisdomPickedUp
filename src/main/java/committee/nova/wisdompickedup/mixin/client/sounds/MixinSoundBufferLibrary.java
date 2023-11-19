@@ -25,6 +25,6 @@ public class MixinSoundBufferLibrary {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(ResourceProvider resourceProvider, CallbackInfo ci) {
-        this.cache = new UnifiedMap<>();
+        this.cache = new UnifiedMap<>(this.cache);
     }
 }

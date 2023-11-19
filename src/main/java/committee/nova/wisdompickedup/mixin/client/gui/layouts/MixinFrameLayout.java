@@ -21,6 +21,6 @@ public class MixinFrameLayout {
 
     @Inject(method = "<init>(IIII)V", at = @At("RETURN"))
     private void inject$init(int i, int j, int k, int l, CallbackInfo ci) {
-        this.children = new FastList<>();
+        this.children = new FastList<>(this.children);
     }
 }

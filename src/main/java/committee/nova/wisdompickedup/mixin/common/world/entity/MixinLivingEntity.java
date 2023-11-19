@@ -25,6 +25,6 @@ public class MixinLivingEntity {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(EntityType<? extends LivingEntity> entityType, Level level, CallbackInfo ci) {
-        this.activeEffects = new UnifiedMap<>();
+        this.activeEffects = new UnifiedMap<>(this.activeEffects);
     }
 }

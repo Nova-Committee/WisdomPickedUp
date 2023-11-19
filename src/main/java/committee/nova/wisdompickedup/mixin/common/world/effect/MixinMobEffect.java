@@ -24,6 +24,6 @@ public class MixinMobEffect {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(MobEffectCategory mobEffectCategory, int i, CallbackInfo ci) {
-        this.attributeModifiers = new UnifiedMap<>();
+        this.attributeModifiers = new UnifiedMap<>(this.attributeModifiers);
     }
 }

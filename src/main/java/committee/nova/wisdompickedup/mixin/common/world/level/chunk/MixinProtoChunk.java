@@ -29,6 +29,6 @@ public class MixinProtoChunk {
 
     @Inject(method = "<init>(Lnet/minecraft/world/level/ChunkPos;Lnet/minecraft/world/level/chunk/UpgradeData;[Lnet/minecraft/world/level/chunk/LevelChunkSection;Lnet/minecraft/world/ticks/ProtoChunkTicks;Lnet/minecraft/world/ticks/ProtoChunkTicks;Lnet/minecraft/world/level/LevelHeightAccessor;Lnet/minecraft/core/Registry;Lnet/minecraft/world/level/levelgen/blending/BlendingData;)V", at = @At("RETURN"))
     private void inject$init(ChunkPos chunkPos, UpgradeData upgradeData, LevelChunkSection[] levelChunkSections, ProtoChunkTicks protoChunkTicks, ProtoChunkTicks protoChunkTicks2, LevelHeightAccessor levelHeightAccessor, Registry registry, BlendingData blendingData, CallbackInfo ci) {
-        this.entities = new FastList<>();
+        this.entities = new FastList<>(this.entities);
     }
 }

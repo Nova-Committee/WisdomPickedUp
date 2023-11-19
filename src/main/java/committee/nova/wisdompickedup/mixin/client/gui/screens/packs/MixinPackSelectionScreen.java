@@ -26,6 +26,6 @@ public class MixinPackSelectionScreen {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(PackRepository packRepository, Consumer<PackRepository> consumer, Path path, Component component, CallbackInfo ci) {
-        this.packIcons = new UnifiedMap<>();
+        this.packIcons = new UnifiedMap<>(this.packIcons);
     }
 }

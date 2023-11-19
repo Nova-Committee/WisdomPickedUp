@@ -30,7 +30,7 @@ public class MixinFontSet {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(TextureManager textureManager, ResourceLocation resourceLocation, CallbackInfo ci) {
-        this.providers = new FastList<>();
-        this.textures = new FastList<>();
+        this.providers = new FastList<>(this.providers);
+        this.textures = new FastList<>(this.textures);
     }
 }

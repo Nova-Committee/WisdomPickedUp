@@ -38,8 +38,8 @@ public class MixinWorldCreationUiState {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Path path, WorldCreationContext worldCreationContext, Optional<ResourceKey<WorldPreset>> optional, OptionalLong optionalLong, CallbackInfo ci) {
-        this.listeners = new FastList<>();
-        this.normalPresetList = new FastList<>();
-        this.altPresetList = new FastList<>();
+        this.listeners = new FastList<>(this.listeners);
+        this.normalPresetList = new FastList<>(this.normalPresetList);
+        this.altPresetList = new FastList<>(this.altPresetList);
     }
 }

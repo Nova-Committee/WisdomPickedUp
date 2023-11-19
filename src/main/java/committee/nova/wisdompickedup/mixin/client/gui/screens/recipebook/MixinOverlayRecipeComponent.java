@@ -21,6 +21,6 @@ public class MixinOverlayRecipeComponent {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(CallbackInfo ci) {
-        this.recipeButtons = new FastList<>();
+        this.recipeButtons = new FastList<>(this.recipeButtons);
     }
 }

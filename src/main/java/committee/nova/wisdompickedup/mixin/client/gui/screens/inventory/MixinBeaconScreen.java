@@ -24,6 +24,6 @@ public class MixinBeaconScreen {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(BeaconMenu beaconMenu, Inventory inventory, Component component, CallbackInfo ci) {
-        this.beaconButtons = new FastList<>();
+        this.beaconButtons = new FastList<>(this.beaconButtons);
     }
 }

@@ -23,6 +23,6 @@ public class MixinCustomBossEvents {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(CallbackInfo ci) {
-        this.events = new UnifiedMap<>();
+        this.events = new UnifiedMap<>(this.events);
     }
 }

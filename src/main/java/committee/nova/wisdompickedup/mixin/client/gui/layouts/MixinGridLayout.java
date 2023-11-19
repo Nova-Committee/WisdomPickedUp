@@ -27,7 +27,7 @@ public class MixinGridLayout {
 
     @Inject(method = "<init>(II)V", at = @At("RETURN"))
     private void inject$init(int i, int j, CallbackInfo ci) {
-        this.children = new FastList<>();
-        this.cellInhabitants = new FastList<>();
+        this.children = new FastList<>(this.children);
+        this.cellInhabitants = new FastList<>(this.cellInhabitants);
     }
 }

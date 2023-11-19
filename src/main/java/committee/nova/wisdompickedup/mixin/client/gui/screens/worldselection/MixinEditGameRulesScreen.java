@@ -24,6 +24,6 @@ public class MixinEditGameRulesScreen {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(GameRules gameRules, Consumer<Optional<GameRules>> consumer, CallbackInfo ci) {
-        this.invalidEntries = new UnifiedSet<>();
+        this.invalidEntries = new UnifiedSet<>(this.invalidEntries);
     }
 }

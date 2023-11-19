@@ -33,8 +33,8 @@ public class MixinAbstractContainerMenu {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(MenuType<?> menuType, int i, CallbackInfo ci) {
-        this.dataSlots = new FastList<>();
-        this.quickcraftSlots = new UnifiedSet<>();
-        this.containerListeners = new FastList<>();
+        this.dataSlots = new FastList<>(this.dataSlots);
+        this.quickcraftSlots = new UnifiedSet<>(this.quickcraftSlots);
+        this.containerListeners = new FastList<>(this.containerListeners);
     }
 }

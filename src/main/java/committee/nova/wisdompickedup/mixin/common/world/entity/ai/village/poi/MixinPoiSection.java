@@ -26,6 +26,6 @@ public class MixinPoiSection {
 
     @Inject(method = "<init>(Ljava/lang/Runnable;ZLjava/util/List;)V", at = @At("RETURN"))
     private void inject$init(Runnable runnable, boolean bl, List<PoiRecord> list, CallbackInfo ci) {
-        this.byType = UnifiedMap.newMap(this.byType);
+        this.byType = new UnifiedMap<>(this.byType);
     }
 }

@@ -30,7 +30,7 @@ public class MixinUpgradeData {
 
     @Inject(method = "<init>(Lnet/minecraft/world/level/LevelHeightAccessor;)V", at = @At("RETURN"))
     private void inject$init(LevelHeightAccessor levelHeightAccessor, CallbackInfo ci) {
-        this.neighborBlockTicks = new FastList<>();
-        this.neighborFluidTicks = new FastList<>();
+        this.neighborBlockTicks = new FastList<>(this.neighborBlockTicks);
+        this.neighborFluidTicks = new FastList<>(this.neighborFluidTicks);
     }
 }

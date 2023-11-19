@@ -46,9 +46,9 @@ public class MixinPlayerList {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(MinecraftServer minecraftServer, LayeredRegistryAccess<RegistryLayer> layeredRegistryAccess, PlayerDataStorage playerDataStorage, int i, CallbackInfo ci) {
-        this.players = new FastList<>();
-        this.playersByUUID = new UnifiedMap<>();
-        this.stats = new UnifiedMap<>();
-        this.advancements = new UnifiedMap<>();
+        this.players = new FastList<>(this.players);
+        this.playersByUUID = new UnifiedMap<>(this.playersByUUID);
+        this.stats = new UnifiedMap<>(this.stats);
+        this.advancements = new UnifiedMap<>(this.advancements);
     }
 }

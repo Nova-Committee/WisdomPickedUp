@@ -38,7 +38,7 @@ public class MixinClientLevel {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(ClientPacketListener clientPacketListener, ClientLevel.ClientLevelData clientLevelData, ResourceKey<Level> resourceKey, Holder<DimensionType> holder, int i, int j, Supplier<ProfilerFiller> supplier, LevelRenderer levelRenderer, boolean bl, long l, CallbackInfo ci) {
-        this.players = new FastList<>();
-        this.mapData = new UnifiedMap<>();
+        this.players = new FastList<>(this.players);
+        this.mapData = new UnifiedMap<>(this.mapData);
     }
 }

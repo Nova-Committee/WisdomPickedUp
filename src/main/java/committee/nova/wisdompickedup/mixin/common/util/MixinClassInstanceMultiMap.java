@@ -28,7 +28,7 @@ public class MixinClassInstanceMultiMap<T> {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Class<T> class_, CallbackInfo ci) {
-        this.byClass = new UnifiedMap<>();
-        this.allInstances = new FastList<>();
+        this.byClass = new UnifiedMap<>(this.byClass);
+        this.allInstances = new FastList<>(this.allInstances);
     }
 }

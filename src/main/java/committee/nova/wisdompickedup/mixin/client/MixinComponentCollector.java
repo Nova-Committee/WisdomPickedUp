@@ -22,6 +22,6 @@ public class MixinComponentCollector {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(CallbackInfo ci) {
-        this.parts = new FastList<>();
+        this.parts = new FastList<>(this.parts);
     }
 }

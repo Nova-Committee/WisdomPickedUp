@@ -24,6 +24,6 @@ public class MixinLightningBolt {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(EntityType<? extends LightningBolt> entityType, Level level, CallbackInfo ci) {
-        this.hitEntities = new UnifiedSet<>();
+        this.hitEntities = new UnifiedSet<>(this.hitEntities);
     }
 }

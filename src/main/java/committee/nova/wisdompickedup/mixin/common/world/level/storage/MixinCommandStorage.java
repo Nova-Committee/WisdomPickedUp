@@ -22,6 +22,6 @@ public class MixinCommandStorage {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(DimensionDataStorage dimensionDataStorage, CallbackInfo ci) {
-        this.namespaces = new UnifiedMap<>();
+        this.namespaces = new UnifiedMap<>(this.namespaces);
     }
 }

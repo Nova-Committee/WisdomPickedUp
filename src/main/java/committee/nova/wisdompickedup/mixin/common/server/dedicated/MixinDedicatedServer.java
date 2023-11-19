@@ -30,6 +30,6 @@ public class MixinDedicatedServer {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Thread thread, LevelStorageSource.LevelStorageAccess levelStorageAccess, PackRepository packRepository, WorldStem worldStem, DedicatedServerSettings dedicatedServerSettings, DataFixer dataFixer, Services services, ChunkProgressListenerFactory chunkProgressListenerFactory, CallbackInfo ci) {
-        this.consoleInput = SynchronizedMutableList.of(new FastList<>());
+        this.consoleInput = SynchronizedMutableList.of(new FastList<>(this.consoleInput));
     }
 }

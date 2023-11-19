@@ -30,7 +30,7 @@ public class MixinPartDefinition {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(List<CubeDefinition> list, PartPose partPose, CallbackInfo ci) {
-        this.cubes = FastList.newList(list);
-        this.children = new UnifiedMap<>();
+        this.cubes = new FastList<>(this.cubes);
+        this.children = new UnifiedMap<>(this.children);
     }
 }

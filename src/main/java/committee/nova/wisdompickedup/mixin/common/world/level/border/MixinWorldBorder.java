@@ -22,6 +22,6 @@ public class MixinWorldBorder {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(CallbackInfo ci) {
-        this.listeners = new FastList<>();
+        this.listeners = new FastList<>(this.listeners);
     }
 }

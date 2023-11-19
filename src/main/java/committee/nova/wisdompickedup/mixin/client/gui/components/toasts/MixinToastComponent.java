@@ -22,6 +22,6 @@ public class MixinToastComponent {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Minecraft minecraft, CallbackInfo ci) {
-        this.visible = new FastList<>();
+        this.visible = new FastList<>(this.visible);
     }
 }

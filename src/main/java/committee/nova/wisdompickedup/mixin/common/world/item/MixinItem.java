@@ -22,6 +22,6 @@ public class MixinItem {
 
     @Inject(method = "<clinit>", at = @At("RETURN"))
     private static void inject$clinit(CallbackInfo ci) {
-        BY_BLOCK = new UnifiedMap<>();
+        BY_BLOCK = new UnifiedMap<>(BY_BLOCK);
     }
 }

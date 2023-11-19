@@ -23,6 +23,6 @@ public class MixinDeathScreen {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Component component, boolean bl, CallbackInfo ci) {
-        this.exitButtons = new FastList<>();
+        this.exitButtons = new FastList<>(this.exitButtons);
     }
 }

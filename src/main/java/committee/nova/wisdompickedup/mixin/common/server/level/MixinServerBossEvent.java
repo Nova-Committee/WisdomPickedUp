@@ -30,7 +30,7 @@ public class MixinServerBossEvent {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Component component, BossEvent.BossBarColor bossBarColor, BossEvent.BossBarOverlay bossBarOverlay, CallbackInfo ci) {
-        this.players = new UnifiedSet<>();
+        this.players = new UnifiedSet<>(this.players);
         this.unmodifiablePlayers = UnmodifiableMutableSet.of(this.players);
     }
 }

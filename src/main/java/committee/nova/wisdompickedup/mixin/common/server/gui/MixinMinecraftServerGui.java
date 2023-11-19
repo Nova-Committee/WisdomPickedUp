@@ -22,7 +22,7 @@ public class MixinMinecraftServerGui {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(DedicatedServer dedicatedServer, CallbackInfo ci) {
-        this.finalizers = new FastList<>();
+        this.finalizers = new FastList<>(this.finalizers);
     }
 
 }

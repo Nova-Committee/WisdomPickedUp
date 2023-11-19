@@ -37,8 +37,8 @@ public class MixinPlayerAdvancements {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(DataFixer dataFixer, PlayerList playerList, ServerAdvancementManager serverAdvancementManager, Path path, ServerPlayer serverPlayer, CallbackInfo ci) {
-        this.visible = new UnifiedSet<>();
-        this.progressChanged = new UnifiedSet<>();
-        this.rootsToUpdate = new UnifiedSet<>();
+        this.visible = new UnifiedSet<>(this.visible);
+        this.progressChanged = new UnifiedSet<>(this.progressChanged);
+        this.rootsToUpdate = new UnifiedSet<>(this.rootsToUpdate);
     }
 }

@@ -21,6 +21,6 @@ public class MixinScreenNarrationCollector {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(CallbackInfo ci) {
-        this.entries = new UnifiedMap<>();
+        this.entries = new UnifiedMap<>(this.entries);
     }
 }

@@ -36,7 +36,7 @@ public class MixinClientPacketListener {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Minecraft minecraft, Screen screen, Connection connection, ServerData serverData, GameProfile gameProfile, WorldSessionTelemetryManager worldSessionTelemetryManager, CallbackInfo ci) {
-        this.deferredPackets = new FastList<>();
-        this.playerInfoMap = new UnifiedMap<>();
+        this.deferredPackets = new FastList<>(this.deferredPackets);
+        this.playerInfoMap = new UnifiedMap<>(this.playerInfoMap);
     }
 }

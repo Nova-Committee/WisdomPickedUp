@@ -24,6 +24,6 @@ public class MixinConfirmScreen {
 
     @Inject(method = "<init>(Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;Lnet/minecraft/network/chat/Component;Lnet/minecraft/network/chat/Component;Lnet/minecraft/network/chat/Component;Lnet/minecraft/network/chat/Component;)V", at = @At("RETURN"))
     private void inject$init(BooleanConsumer booleanConsumer, Component component, Component component2, Component component3, Component component4, CallbackInfo ci) {
-        this.exitButtons = new FastList<>();
+        this.exitButtons = new FastList<>(this.exitButtons);
     }
 }

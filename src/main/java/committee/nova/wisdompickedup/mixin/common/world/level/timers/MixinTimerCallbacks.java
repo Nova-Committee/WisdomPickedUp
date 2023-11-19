@@ -28,7 +28,7 @@ public class MixinTimerCallbacks<C> {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(CallbackInfo ci) {
-        this.idToSerializer = new UnifiedMap<>();
-        this.classToSerializer = new UnifiedMap<>();
+        this.idToSerializer = new UnifiedMap<>(this.idToSerializer);
+        this.classToSerializer = new UnifiedMap<>(this.classToSerializer);
     }
 }

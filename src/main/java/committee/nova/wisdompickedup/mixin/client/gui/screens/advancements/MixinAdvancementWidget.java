@@ -25,6 +25,6 @@ public class MixinAdvancementWidget {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(AdvancementTab advancementTab, Minecraft minecraft, Advancement advancement, DisplayInfo displayInfo, CallbackInfo ci) {
-        this.children = new FastList<>();
+        this.children = new FastList<>(this.children);
     }
 }

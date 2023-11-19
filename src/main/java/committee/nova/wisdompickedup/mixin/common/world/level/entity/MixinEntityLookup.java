@@ -23,6 +23,6 @@ public class MixinEntityLookup<T extends EntityAccess> {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(CallbackInfo ci) {
-        this.byUuid = new UnifiedMap<>();
+        this.byUuid = new UnifiedMap<>(this.byUuid);
     }
 }

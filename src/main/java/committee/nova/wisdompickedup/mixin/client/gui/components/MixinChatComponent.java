@@ -38,9 +38,9 @@ public class MixinChatComponent {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Minecraft minecraft, CallbackInfo ci) {
-        this.recentChat = new FastList<>();
-        this.allMessages = new FastList<>();
-        this.trimmedMessages = new FastList<>();
-        this.messageDeletionQueue = new FastList<>();
+        this.recentChat = new FastList<>(this.recentChat);
+        this.allMessages = new FastList<>(this.allMessages);
+        this.trimmedMessages = new FastList<>(this.trimmedMessages);
+        this.messageDeletionQueue = new FastList<>(this.messageDeletionQueue);
     }
 }

@@ -65,7 +65,6 @@
     "client.gui.components.MixinCommandSuggestions",
     "client.gui.components.MixinCommandSuggestions$SuggestionsList",
     "client.gui.components.MixinMultilineTextField",
-    "client.gui.components.MixinOptionsList$Entry",
     "client.gui.components.MixinSubtitleOverlay",
     "client.gui.components.toasts.MixinRecipeToast",
     "client.gui.components.toasts.MixinSystemToast",

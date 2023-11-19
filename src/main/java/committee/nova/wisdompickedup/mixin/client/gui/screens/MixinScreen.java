@@ -35,8 +35,8 @@ public class MixinScreen {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Component component, CallbackInfo ci) {
-        this.children = new FastList<>();
-        this.narratables = new FastList<>();
-        this.renderables = new FastList<>();
+        this.children = new FastList<>(this.children);
+        this.narratables = new FastList<>(this.narratables);
+        this.renderables = new FastList<>(this.renderables);
     }
 }

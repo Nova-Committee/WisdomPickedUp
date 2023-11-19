@@ -24,6 +24,6 @@ public class MixinBossHealthOverlay {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Minecraft minecraft, CallbackInfo ci) {
-        this.events = new UnifiedMap<>();
+        this.events = new UnifiedMap<>(this.events);
     }
 }

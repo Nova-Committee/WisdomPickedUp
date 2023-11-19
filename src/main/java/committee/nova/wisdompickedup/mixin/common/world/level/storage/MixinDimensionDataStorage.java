@@ -24,6 +24,6 @@ public class MixinDimensionDataStorage {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(File file, DataFixer dataFixer, CallbackInfo ci) {
-        this.cache = new UnifiedMap<>();
+        this.cache = new UnifiedMap<>(this.cache);
     }
 }

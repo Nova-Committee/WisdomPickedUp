@@ -35,8 +35,8 @@ public class MixinEuclideanGameEventListenerRegistry {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(ServerLevel serverLevel, int i, EuclideanGameEventListenerRegistry.OnEmptyAction onEmptyAction, CallbackInfo ci) {
-        this.listeners = new FastList<>();
-        this.listenersToAdd = new FastList<>();
-        this.listenersToRemove = new UnifiedSet<>();
+        this.listeners = new FastList<>(this.listeners);
+        this.listenersToAdd = new FastList<>(this.listenersToAdd);
+        this.listenersToRemove = new UnifiedSet<>(this.listenersToRemove);
     }
 }

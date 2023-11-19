@@ -32,7 +32,7 @@ public class MixinFontManager {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(TextureManager textureManager, CallbackInfo ci) {
-        this.providersToClose = new FastList<>();
-        this.fontSets = new UnifiedMap<>();
+        this.providersToClose = new FastList<>(this.providersToClose);
+        this.fontSets = new UnifiedMap<>(this.fontSets);
     }
 }

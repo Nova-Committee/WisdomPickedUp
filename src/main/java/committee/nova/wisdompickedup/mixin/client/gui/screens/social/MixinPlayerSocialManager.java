@@ -31,7 +31,7 @@ public class MixinPlayerSocialManager {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Minecraft minecraft, UserApiService userApiService, CallbackInfo ci) {
-        this.hiddenPlayers = new UnifiedSet<>();
-        this.discoveredNamesToUUID = new UnifiedMap<>();
+        this.hiddenPlayers = new UnifiedSet<>(this.hiddenPlayers);
+        this.discoveredNamesToUUID = new UnifiedMap<>(this.discoveredNamesToUUID);
     }
 }

@@ -25,6 +25,6 @@ public class MixinAbstractContainerScreen {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(AbstractContainerMenu abstractContainerMenu, Inventory inventory, Component component, CallbackInfo ci) {
-        this.quickCraftSlots = new UnifiedSet<>();
+        this.quickCraftSlots = new UnifiedSet<>(this.quickCraftSlots);
     }
 }

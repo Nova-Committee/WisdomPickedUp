@@ -22,6 +22,6 @@ public class MixinTreeNodePosition {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Advancement advancement, TreeNodePosition treeNodePosition, TreeNodePosition treeNodePosition2, int i, int j, CallbackInfo ci) {
-        this.children = new FastList<>();
+        this.children = new FastList<>(this.children);
     }
 }

@@ -23,6 +23,6 @@ public class MixinCommandSuggestions {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(CallbackInfo ci) {
-        this.commandUsage = new FastList<>();
+        this.commandUsage = new FastList<>(this.commandUsage);
     }
 }

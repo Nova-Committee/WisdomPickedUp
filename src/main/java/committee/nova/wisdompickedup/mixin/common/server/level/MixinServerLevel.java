@@ -36,7 +36,7 @@ public class MixinServerLevel {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(MinecraftServer minecraftServer, Executor executor, LevelStorageSource.LevelStorageAccess levelStorageAccess, ServerLevelData serverLevelData, ResourceKey resourceKey, LevelStem levelStem, ChunkProgressListener chunkProgressListener, boolean bl, long l, List list, boolean bl2, RandomSequences randomSequences, CallbackInfo ci) {
-        this.players = new FastList<>();
-        this.blockEventsToReschedule = new FastList<>(64);
+        this.players = new FastList<>(this.players);
+        this.blockEventsToReschedule = new FastList<>(this.blockEventsToReschedule);
     }
 }

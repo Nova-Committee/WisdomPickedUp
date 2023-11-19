@@ -30,7 +30,7 @@ public class MixinServerScoreboard {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(MinecraftServer minecraftServer, CallbackInfo ci) {
-        this.trackedObjectives = new UnifiedSet<>();
-        this.dirtyListeners = new FastList<>();
+        this.trackedObjectives = new UnifiedSet<>(this.trackedObjectives);
+        this.dirtyListeners = new FastList<>(this.dirtyListeners);
     }
 }

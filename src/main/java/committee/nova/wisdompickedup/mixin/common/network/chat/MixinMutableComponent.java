@@ -24,7 +24,7 @@ public class MixinMutableComponent {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(ComponentContents componentContents, List<Component> list, Style style, CallbackInfo ci) {
-        this.siblings = FastList.newList(list);
+        this.siblings = new FastList<>(this.siblings);
     }
 
 }

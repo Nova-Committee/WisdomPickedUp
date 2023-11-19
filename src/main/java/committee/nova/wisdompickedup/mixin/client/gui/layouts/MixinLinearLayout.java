@@ -21,6 +21,6 @@ public class MixinLinearLayout {
 
     @Inject(method = "<init>(IIIILnet/minecraft/client/gui/layouts/LinearLayout$Orientation;)V", at = @At("RETURN"))
     private void inject$init(int i, int j, int k, int l, LinearLayout.Orientation orientation, CallbackInfo ci) {
-        this.children = new FastList<>();
+        this.children = new FastList<>(this.children);
     }
 }

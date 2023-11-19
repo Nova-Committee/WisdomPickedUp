@@ -23,6 +23,6 @@ public class MixinDistanceManager {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Executor executor, Executor executor2, CallbackInfo ci) {
-        this.chunksToUpdateFutures = new UnifiedSet<>();
+        this.chunksToUpdateFutures = new UnifiedSet<>(this.chunksToUpdateFutures);
     }
 }

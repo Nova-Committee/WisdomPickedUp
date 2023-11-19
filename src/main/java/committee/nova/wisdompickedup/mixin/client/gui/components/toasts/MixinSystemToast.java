@@ -19,6 +19,6 @@ public class MixinSystemToast {
 
     @Inject(method = "<init>(Lnet/minecraft/client/gui/components/toasts/SystemToast$SystemToastIds;Lnet/minecraft/network/chat/Component;Ljava/util/List;I)V", at = @At("RETURN"))
     private void inject$init(SystemToast.SystemToastIds systemToastIds, Component component, List<FormattedCharSequence> list, int i, CallbackInfo ci) {
-        this.messageLines = FastList.newList(list);
+        this.messageLines = new FastList<>(this.messageLines);
     }
 }

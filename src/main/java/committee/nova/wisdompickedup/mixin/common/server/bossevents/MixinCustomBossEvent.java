@@ -24,6 +24,6 @@ public class MixinCustomBossEvent {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(ResourceLocation resourceLocation, Component component, CallbackInfo ci) {
-        this.players = new UnifiedSet<>();
+        this.players = new UnifiedSet<>(this.players);
     }
 }

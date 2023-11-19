@@ -25,6 +25,6 @@ public class MixinPersistentEntitySectionManager<T extends EntityAccess> {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Class<T> class_, LevelCallback<T> levelCallback, EntityPersistentStorage<T> entityPersistentStorage, CallbackInfo ci) {
-        this.knownUuids = new UnifiedSet<>();
+        this.knownUuids = new UnifiedSet<>(this.knownUuids);
     }
 }

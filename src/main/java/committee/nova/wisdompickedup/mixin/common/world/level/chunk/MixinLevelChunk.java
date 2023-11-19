@@ -31,6 +31,6 @@ public class MixinLevelChunk {
 
     @Inject(method = "<init>(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/level/ChunkPos;Lnet/minecraft/world/level/chunk/UpgradeData;Lnet/minecraft/world/ticks/LevelChunkTicks;Lnet/minecraft/world/ticks/LevelChunkTicks;J[Lnet/minecraft/world/level/chunk/LevelChunkSection;Lnet/minecraft/world/level/chunk/LevelChunk$PostLoadProcessor;Lnet/minecraft/world/level/levelgen/blending/BlendingData;)V", at = @At("RETURN"))
     private void inject$init(Level level, ChunkPos chunkPos, UpgradeData upgradeData, LevelChunkTicks<Block> levelChunkTicks, LevelChunkTicks<Fluid> levelChunkTicks2, long l, @Nullable LevelChunkSection[] levelChunkSections, @Nullable LevelChunk.PostLoadProcessor postLoadProcessor, @Nullable BlendingData blendingData, CallbackInfo ci) {
-        this.tickersInLevel = new UnifiedMap<>();
+        this.tickersInLevel = new UnifiedMap<>(this.tickersInLevel);
     }
 }

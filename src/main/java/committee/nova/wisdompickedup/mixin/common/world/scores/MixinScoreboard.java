@@ -46,10 +46,10 @@ public class MixinScoreboard {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(CallbackInfo ci) {
-        this.objectivesByName = new UnifiedMap<>();
-        this.objectivesByCriteria = new UnifiedMap<>();
-        this.playerScores = new UnifiedMap<>();
-        this.teamsByName = new UnifiedMap<>();
-        this.teamsByPlayer = new UnifiedMap<>();
+        this.objectivesByName = new UnifiedMap<>(this.objectivesByName);
+        this.objectivesByCriteria = new UnifiedMap<>(this.objectivesByCriteria);
+        this.playerScores = new UnifiedMap<>(this.playerScores);
+        this.teamsByName = new UnifiedMap<>(this.teamsByName);
+        this.teamsByPlayer = new UnifiedMap<>(this.teamsByPlayer);
     }
 }

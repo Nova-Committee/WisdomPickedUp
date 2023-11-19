@@ -22,6 +22,6 @@ public class MixinMultilineTextField {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Font font, int i, CallbackInfo ci) {
-        this.displayLines = new FastList<>();
+        this.displayLines = new FastList<>(this.displayLines);
     }
 }

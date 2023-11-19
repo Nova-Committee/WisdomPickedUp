@@ -28,7 +28,7 @@ public class MixinServerSelectionList {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(JoinMultiplayerScreen joinMultiplayerScreen, Minecraft minecraft, int i, int j, int k, int l, int m, CallbackInfo ci) {
-        this.onlineServers = new FastList<>();
-        this.networkServers = new FastList<>();
+        this.onlineServers = new FastList<>(this.onlineServers);
+        this.networkServers = new FastList<>(this.networkServers);
     }
 }

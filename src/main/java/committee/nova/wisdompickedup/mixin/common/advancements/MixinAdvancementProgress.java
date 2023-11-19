@@ -23,6 +23,6 @@ public class MixinAdvancementProgress {
 
     @Inject(method = "<init>(Ljava/util/Map;)V", at = @At("RETURN"))
     private void inject$init(Map<String, CriterionProgress> map, CallbackInfo ci) {
-        this.criteria = new UnifiedMap<>(map);
+        this.criteria = new UnifiedMap<>(this.criteria);
     }
 }

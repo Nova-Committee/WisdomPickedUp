@@ -22,6 +22,6 @@ public class MixinSplashManager {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(User user, CallbackInfo ci) {
-        this.splashes = new FastList<>();
+        this.splashes = new FastList<>(this.splashes);
     }
 }

@@ -33,7 +33,7 @@ public class MixinPackSelectionModel {
     private void inject$init(
             Runnable runnable, Function<Pack, ResourceLocation> function,
             PackRepository packRepository, Consumer<PackRepository> consumer, CallbackInfo ci) {
-        this.selected = new FastList<>(selected);
-        this.unselected = new FastList<>(unselected);
+        this.selected = new FastList<>(this.selected);
+        this.unselected = new FastList<>(this.unselected);
     }
 }

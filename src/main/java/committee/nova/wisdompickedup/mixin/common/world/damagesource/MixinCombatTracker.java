@@ -23,6 +23,6 @@ public class MixinCombatTracker {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(LivingEntity livingEntity, CallbackInfo ci) {
-        this.entries = new FastList<>();
+        this.entries = new FastList<>(this.entries);
     }
 }

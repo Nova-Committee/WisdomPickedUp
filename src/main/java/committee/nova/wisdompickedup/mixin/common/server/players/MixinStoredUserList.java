@@ -23,6 +23,6 @@ public class MixinStoredUserList<K, V extends StoredUserEntry<K>> {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(File file, CallbackInfo ci) {
-        this.map = new UnifiedMap<>();
+        this.map = new UnifiedMap<>(this.map);
     }
 }

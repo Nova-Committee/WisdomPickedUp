@@ -3,8 +3,10 @@ package committee.nova.wisdompickedup.mixin.common.world.level;
 import net.minecraft.core.Holder;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.TickingBlockEntity;
+import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.storage.WritableLevelData;
 import org.eclipse.collections.impl.list.mutable.FastList;
 import org.spongepowered.asm.mixin.Final;
@@ -31,8 +33,8 @@ public class MixinLevel {
     private List<TickingBlockEntity> pendingBlockEntityTickers;
 
     @Inject(method = "<init>", at = @At("RETURN"))
-    private void inject$init(WritableLevelData writableLevelData, ResourceKey resourceKey, RegistryAccess registryAccess, Holder holder, Supplier supplier, boolean bl, boolean bl2, long l, int i, CallbackInfo ci) {
-        this.blockEntityTickers = new FastList<>();
-        this.pendingBlockEntityTickers = new FastList<>();
+    private void inject$init(WritableLevelData writableLevelData, ResourceKey<Level> resourceKey, RegistryAccess registryAccess, Holder<DimensionType> holder, Supplier<ProfilerFiller> supplier, boolean bl, boolean bl2, long l, int i, CallbackInfo ci) {
+        this.blockEntityTickers = new FastList<>(this.blockEntityTickers);
+        this.pendingBlockEntityTickers = new FastList<>(this.pendingBlockEntityTickers);
     }
 }

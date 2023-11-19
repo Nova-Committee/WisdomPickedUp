@@ -32,7 +32,7 @@ public class MixinAreaEffectCloud {
 
     @Inject(method = "<init>(Lnet/minecraft/world/entity/EntityType;Lnet/minecraft/world/level/Level;)V", at = @At("RETURN"))
     private void inject$init(EntityType<? extends AreaEffectCloud> entityType, Level level, CallbackInfo ci) {
-        this.effects = new FastList<>();
-        this.victims = new UnifiedMap<>();
+        this.effects = new FastList<>(this.effects);
+        this.victims = new UnifiedMap<>(this.victims);
     }
 }

@@ -21,6 +21,6 @@ public class MixinGhostRecipe {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(CallbackInfo ci) {
-        this.ingredients = new FastList<>();
+        this.ingredients = new FastList<>(this.ingredients);
     }
 }

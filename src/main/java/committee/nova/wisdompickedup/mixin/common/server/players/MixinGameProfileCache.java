@@ -37,8 +37,8 @@ public class MixinGameProfileCache {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(GameProfileRepository gameProfileRepository, File file, CallbackInfo ci) {
-        this.profilesByName = ConcurrentHashMap.newMap();
-        this.profilesByUUID = ConcurrentHashMap.newMap();
-        this.requests = ConcurrentHashMap.newMap();
+        this.profilesByName = ConcurrentHashMap.newMap(this.profilesByName);
+        this.profilesByUUID = ConcurrentHashMap.newMap(this.profilesByUUID);
+        this.requests = ConcurrentHashMap.newMap(this.requests);
     }
 }

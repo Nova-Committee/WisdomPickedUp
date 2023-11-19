@@ -33,10 +33,9 @@ public class MixinRecipeCollection {
     private Set<Recipe<?>> known;
 
     @Inject(method = "<init>", at = @At("RETURN"))
-    @SuppressWarnings("unchecked")
     private void inject$init(RegistryAccess registryAccess, List<Recipe<?>> list, CallbackInfo ci) {
-        this.craftable = new UnifiedSet<>();
-        this.fitsDimensions = new UnifiedSet<>();
-        this.known = new UnifiedSet<>();
+        this.craftable = new UnifiedSet<>(this.craftable);
+        this.fitsDimensions = new UnifiedSet<>(this.fitsDimensions);
+        this.known = new UnifiedSet<>(this.known);
     }
 }

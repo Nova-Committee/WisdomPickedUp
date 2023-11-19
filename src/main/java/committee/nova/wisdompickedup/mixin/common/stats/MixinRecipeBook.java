@@ -27,7 +27,7 @@ public class MixinRecipeBook {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(CallbackInfo ci) {
-        this.known = new UnifiedSet<>();
-        this.highlight = new UnifiedSet<>();
+        this.known = new UnifiedSet<>(this.known);
+        this.highlight = new UnifiedSet<>(this.highlight);
     }
 }

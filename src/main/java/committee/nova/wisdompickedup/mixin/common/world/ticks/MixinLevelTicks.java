@@ -25,6 +25,6 @@ public class MixinLevelTicks<T> {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(LongPredicate longPredicate, Supplier<ProfilerFiller> supplier, CallbackInfo ci) {
-        this.alreadyRunThisTick = new FastList<>();
+        this.alreadyRunThisTick = new FastList<>(this.alreadyRunThisTick);
     }
 }

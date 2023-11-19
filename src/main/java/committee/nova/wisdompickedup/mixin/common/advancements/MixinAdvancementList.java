@@ -23,6 +23,6 @@ public class MixinAdvancementList {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(CallbackInfo ci) {
-        this.advancements = new UnifiedMap<>();
+        this.advancements = new UnifiedMap<>(this.advancements);
     }
 }

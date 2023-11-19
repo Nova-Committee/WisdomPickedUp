@@ -39,9 +39,9 @@ public class MixinKeyMapping {
 
     @Inject(method = "<clinit>", at = @At("RETURN"))
     private static void inject$clinit(CallbackInfo ci) {
-        ALL = new UnifiedMap<>();
-        MAP = new UnifiedMap<>();
-        CATEGORIES = new UnifiedSet<>();
-        CATEGORY_SORT_ORDER = UnifiedMap.newMap(CATEGORY_SORT_ORDER);
+        ALL = new UnifiedMap<>(ALL);
+        MAP = new UnifiedMap<>(MAP);
+        CATEGORIES = new UnifiedSet<>(CATEGORIES);
+        CATEGORY_SORT_ORDER = new UnifiedMap<>(CATEGORY_SORT_ORDER);
     }
 }

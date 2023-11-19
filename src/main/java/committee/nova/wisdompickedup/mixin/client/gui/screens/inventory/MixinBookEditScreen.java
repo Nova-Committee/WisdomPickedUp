@@ -24,6 +24,6 @@ public class MixinBookEditScreen {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Player player, ItemStack itemStack, InteractionHand interactionHand, CallbackInfo ci) {
-        this.pages = new FastList<>();
+        this.pages = new FastList<>(this.pages);
     }
 }

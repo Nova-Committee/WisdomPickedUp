@@ -22,6 +22,6 @@ public class MixinModelPart {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(List<ModelPart.Cube> list, Map<String, ModelPart> map, CallbackInfo ci) {
-        this.children = new UnifiedMap<>(map);
+        this.children = new UnifiedMap<>(this.children);
     }
 }

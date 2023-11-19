@@ -22,6 +22,6 @@ public class MixinRecipeBookComponent {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(CallbackInfo ci) {
-        this.tabButtons = new FastList<>();
+        this.tabButtons = new FastList<>(this.tabButtons);
     }
 }

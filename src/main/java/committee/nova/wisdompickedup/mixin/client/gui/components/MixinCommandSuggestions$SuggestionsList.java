@@ -22,6 +22,6 @@ public class MixinCommandSuggestions$SuggestionsList {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(CommandSuggestions commandSuggestions, int i, int j, int k, List<Suggestion> list, boolean bl, CallbackInfo ci) {
-        this.suggestionList = new FastList<>(list);
+        this.suggestionList = new FastList<>(this.suggestionList);
     }
 }

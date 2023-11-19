@@ -28,7 +28,7 @@ public class MixinServerList {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Minecraft minecraft, CallbackInfo ci) {
-        this.serverList = new FastList<>();
-        this.hiddenServerList = new FastList<>();
+        this.serverList = new FastList<>(this.serverList);
+        this.hiddenServerList = new FastList<>(this.hiddenServerList);
     }
 }

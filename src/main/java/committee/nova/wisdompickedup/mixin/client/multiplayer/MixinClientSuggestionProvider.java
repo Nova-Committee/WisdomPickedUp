@@ -23,6 +23,6 @@ public class MixinClientSuggestionProvider {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(ClientPacketListener clientPacketListener, Minecraft minecraft, CallbackInfo ci) {
-        this.customCompletionSuggestions = new UnifiedSet<>();
+        this.customCompletionSuggestions = new UnifiedSet<>(this.customCompletionSuggestions);
     }
 }

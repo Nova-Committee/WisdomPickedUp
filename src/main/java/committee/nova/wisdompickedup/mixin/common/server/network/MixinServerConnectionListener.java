@@ -30,7 +30,7 @@ public class MixinServerConnectionListener {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(MinecraftServer minecraftServer, CallbackInfo ci) {
-        this.channels = SynchronizedMutableList.of(new FastList<>());
-        this.connections = SynchronizedMutableList.of(new FastList<>());
+        this.channels = SynchronizedMutableList.of(new FastList<>(this.channels));
+        this.connections = SynchronizedMutableList.of(new FastList<>(this.connections));
     }
 }

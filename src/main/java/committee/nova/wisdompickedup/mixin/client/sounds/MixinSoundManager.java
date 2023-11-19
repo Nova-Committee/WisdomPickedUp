@@ -37,8 +37,8 @@ public class MixinSoundManager {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Options options, CallbackInfo ci) {
-        this.registry = new UnifiedMap<>();
-        this.soundCache = new UnifiedMap<>();
+        this.registry = new UnifiedMap<>(this.registry);
+        this.soundCache = new UnifiedMap<>(this.soundCache);
         this.soundEngine = new SoundEngine((SoundManager) (Object) this, options, ResourceProvider.fromMap(this.soundCache));
     }
 }

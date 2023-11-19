@@ -27,6 +27,6 @@ public class MixinExplosion {
 
     @Inject(method = "<init>(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/damagesource/DamageSource;Lnet/minecraft/world/level/ExplosionDamageCalculator;DDDFZLnet/minecraft/world/level/Explosion$BlockInteraction;)V", at = @At("RETURN"))
     private void inject$init(Level level, Entity entity, DamageSource damageSource, ExplosionDamageCalculator explosionDamageCalculator, double d, double e, double f, float g, boolean bl, Explosion.BlockInteraction blockInteraction, CallbackInfo ci) {
-        this.hitPlayers = new UnifiedMap<>();
+        this.hitPlayers = new UnifiedMap<>(this.hitPlayers);
     }
 }

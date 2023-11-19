@@ -24,6 +24,6 @@ public class MixinSocialInteractionsPlayerList {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(SocialInteractionsScreen socialInteractionsScreen, Minecraft minecraft, int i, int j, int k, int l, int m, CallbackInfo ci) {
-        this.players = new FastList<>();
+        this.players = new FastList<>(this.players);
     }
 }

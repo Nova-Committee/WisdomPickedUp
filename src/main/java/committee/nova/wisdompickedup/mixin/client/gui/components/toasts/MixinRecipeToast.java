@@ -22,6 +22,6 @@ public class MixinRecipeToast {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Recipe<?> recipe, CallbackInfo ci) {
-        this.recipes = FastList.newListWith(recipe);
+        this.recipes = new FastList<>(this.recipes);
     }
 }

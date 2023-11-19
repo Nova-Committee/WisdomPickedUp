@@ -50,9 +50,9 @@ public class MixinChunkAccess {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(ChunkPos chunkPos, UpgradeData upgradeData, LevelHeightAccessor levelHeightAccessor, Registry<Biome> registry, long l, @Nullable LevelChunkSection[] levelChunkSections, @Nullable BlendingData blendingData, CallbackInfo ci) {
-        this.structureStarts = new UnifiedMap<>();
-        this.structuresRefences = new UnifiedMap<>();
-        this.pendingBlockEntities = new UnifiedMap<>();
-        this.blockEntities = new UnifiedMap<>();
+        this.structureStarts = new UnifiedMap<>(this.structureStarts);
+        this.structuresRefences = new UnifiedMap<>(this.structuresRefences);
+        this.pendingBlockEntities = new UnifiedMap<>(this.pendingBlockEntities);
+        this.blockEntities = new UnifiedMap<>(this.blockEntities);
     }
 }

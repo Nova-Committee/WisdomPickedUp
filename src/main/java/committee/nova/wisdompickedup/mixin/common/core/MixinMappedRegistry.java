@@ -31,7 +31,7 @@ public class MixinMappedRegistry<T> {
 
     @Inject(method = "<init>(Lnet/minecraft/resources/ResourceKey;Lcom/mojang/serialization/Lifecycle;Z)V", at = @At("RETURN"))
     private void inject$init(ResourceKey<? extends Registry<T>> resourceKey, Lifecycle lifecycle, boolean bl, CallbackInfo ci) {
-        this.byLocation = new UnifiedMap<>();
-        this.byKey = new UnifiedMap<>();
+        this.byLocation = new UnifiedMap<>(this.byLocation);
+        this.byKey = new UnifiedMap<>(this.byKey);
     }
 }

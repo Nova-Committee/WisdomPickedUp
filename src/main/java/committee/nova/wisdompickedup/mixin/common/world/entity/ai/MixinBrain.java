@@ -46,7 +46,7 @@ public class MixinBrain<E extends LivingEntity> {
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Collection<? extends MemoryModuleType<?>> collection, Collection<? extends SensorType<? extends Sensor<? super E>>> collection2, ImmutableList<?> immutableList, Supplier<Codec<Brain<E>>> supplier, CallbackInfo ci) {
         this.memories = new UnifiedMap<>(this.memories);
-        this.activityRequirements = new UnifiedMap<>();
-        this.activityMemoriesToEraseWhenStopped = new UnifiedMap<>();
+        this.activityRequirements = new UnifiedMap<>(this.activityRequirements);
+        this.activityMemoriesToEraseWhenStopped = new UnifiedMap<>(this.activityMemoriesToEraseWhenStopped);
     }
 }

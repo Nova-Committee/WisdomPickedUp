@@ -28,7 +28,7 @@ public class MixinRecipeBookPage {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(CallbackInfo ci) {
-        this.buttons = new FastList<>(20);
-        this.showListeners = new FastList<>();
+        this.buttons = new FastList<>(this.buttons);
+        this.showListeners = new FastList<>(this.showListeners);
     }
 }

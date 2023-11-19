@@ -23,6 +23,6 @@ public class MixinServerStatusPinger {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(CallbackInfo ci) {
-        this.connections = SynchronizedMutableList.of(new FastList<>());
+        this.connections = SynchronizedMutableList.of(new FastList<>(this.connections));
     }
 }

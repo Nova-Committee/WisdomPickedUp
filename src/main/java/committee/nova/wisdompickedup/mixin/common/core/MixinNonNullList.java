@@ -21,6 +21,6 @@ public class MixinNonNullList<E> {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(List<E> list, Object object, CallbackInfo ci) {
-        this.list = FastList.newList(list);
+        this.list = new FastList<>(this.list);
     }
 }

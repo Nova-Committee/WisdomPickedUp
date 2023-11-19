@@ -25,6 +25,6 @@ public class MixinAdvancement {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(ResourceLocation resourceLocation, Advancement advancement, DisplayInfo displayInfo, AdvancementRewards advancementRewards, Map<String, Criterion> map, String[][] strings, boolean bl, CallbackInfo ci) {
-        this.criteria = new UnifiedMap<>(map);
+        this.criteria = new UnifiedMap<>(this.criteria);
     }
 }

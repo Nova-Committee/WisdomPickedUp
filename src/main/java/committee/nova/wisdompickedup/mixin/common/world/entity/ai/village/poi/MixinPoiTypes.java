@@ -24,6 +24,6 @@ public class MixinPoiTypes {
 
     @Inject(method = "<clinit>", at = @At("RETURN"))
     private static void inject$clinit(CallbackInfo ci) {
-        TYPE_BY_STATE = new UnifiedMap<>();
+        TYPE_BY_STATE = new UnifiedMap<>(TYPE_BY_STATE);
     }
 }

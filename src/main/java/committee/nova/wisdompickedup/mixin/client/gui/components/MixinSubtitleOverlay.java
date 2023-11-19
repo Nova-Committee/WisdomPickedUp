@@ -22,6 +22,6 @@ public class MixinSubtitleOverlay {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(Minecraft minecraft, CallbackInfo ci) {
-        this.subtitles = new FastList<>();
+        this.subtitles = new FastList<>(this.subtitles);
     }
 }

@@ -22,6 +22,6 @@ public class MixinGossipContainer {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void inject$init(CallbackInfo ci) {
-        this.gossips = new UnifiedMap<>();
+        this.gossips = new UnifiedMap<>(this.gossips);
     }
 }
