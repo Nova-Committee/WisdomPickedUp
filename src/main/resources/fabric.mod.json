@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "wisdompickedup",
+  "version": "${version}",
+  "name": "WisdomPickedUp",
+  "description": "Replace Minecraft's vanilla collections with Eclipse Collections' faster ones.",
+  "authors": [
+    "Tapio"
+  ],
+  "contact": {},
+  "license": "Nova-Relay-License-1.0",
+  "environment": "*",
+  "mixins": [
+    "wisdompickedup.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "minecraft": "*"
+  },
+  "accessWidener": "wisdompickedup.accesswidener"
+}
